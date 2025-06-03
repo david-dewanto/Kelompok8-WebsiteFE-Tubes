@@ -1,24 +1,43 @@
-# Antibiotic Resistance Predictor Frontend
+# 🧬 Antibiotic Resistance Predictor Frontend
 
-A beautiful, modern web application for predicting antibiotic resistance from epitope sequences using AI. Built with Next.js 14, TypeScript, Tailwind CSS, and featuring stunning 3D animations.
+A stunning, scientifically-accurate web application for predicting antibiotic resistance from epitope sequences using advanced AI. Built with cutting-edge technologies and featuring breathtaking 3D DNA visualizations.
 
-![Antibiotic Resistance Predictor](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)
+![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=flat-square&logo=tailwind-css)
+![Three.js](https://img.shields.io/badge/Three.js-Latest-black?style=flat-square&logo=three.js)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-11-pink?style=flat-square&logo=framer)
 ![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)
 
-## 🚀 Features
+## ✨ Enhanced Features
 
-- **AI-Powered Predictions**: Get instant antibiotic resistance predictions for 11 different antibiotics
-- **Beautiful UI/UX**: Modern, responsive design with dark mode support
-- **3D Visualizations**: Interactive DNA helix animations using Three.js
-- **Real-time Validation**: Instant feedback on epitope sequence input
-- **Data Visualization**: Beautiful charts showing resistance profiles using Recharts
-- **Educational Content**: Learn about antibiotic resistance and how the prediction works
-- **Sample Sequences**: Quick-start with pre-loaded example sequences
-- **Export Results**: Download predictions as CSV files
-- **Accessibility**: ARIA labels and keyboard navigation support
-- **Performance**: Optimized loading with lazy loading and code splitting
+### 🧬 Revolutionary 3D DNA Visualization
+- **Scientifically Accurate Double Helix**: Realistic major/minor groove structure with proper base pair spacing
+- **Interactive Base Pairs**: Hover to see A-T and G-C hydrogen bonds with scientific accuracy
+- **Dynamic Lighting**: Advanced WebGL shaders with bloom effects and chromatic aberration
+- **Mouse-Responsive Animation**: Smooth interaction with mouse movement and hover effects
+- **Floating Genetic Code**: Animated ATCG letters creating an immersive biological environment
+
+### 🎨 Stunning Dark Theme Design
+- **Bioluminescent Color Palette**: Cyan, pink, and teal gradients inspired by molecular visualization
+- **Glassmorphism Effects**: Backdrop blur and transparency for modern aesthetics
+- **Advanced Animations**: Framer Motion with sophisticated transitions and micro-interactions
+- **Particle System**: Floating genetic code letters with realistic physics
+- **Gradient Text**: Dynamic color-changing headings with smooth animations
+
+### 🤖 AI-Powered Intelligence
+- **Instant Predictions**: Sub-second analysis for 11 different antibiotics
+- **Real-time Validation**: Smart input validation with character counting
+- **Interactive Results**: Expandable antibiotic cards with detailed information
+- **Data Visualization**: Enhanced charts with radar and pie chart representations
+- **CSV Export**: Professional reporting capabilities
+
+### 🚀 Technical Excellence
+- **Next.js 14**: Latest App Router with Server Components
+- **TypeScript**: Full type safety and IntelliSense
+- **Three.js Integration**: Advanced 3D graphics with React Three Fiber
+- **Performance Optimized**: Code splitting, lazy loading, and image optimization
+- **Responsive Design**: Mobile-first approach with touch-friendly interactions
 
 ## 🛠️ Tech Stack
 

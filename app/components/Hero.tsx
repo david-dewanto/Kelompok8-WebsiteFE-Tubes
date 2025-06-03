@@ -19,12 +19,12 @@ import { motion } from 'framer-motion'
 import { FiArrowDown, FiPlay } from 'react-icons/fi'
 import * as THREE from 'three'
 
-// DNA Base Pairs
+// DNA Base Pairs - Vibrant colors for better contrast
 const basePairs = [
-  { base1: 'A', base2: 'T', color1: '#FF6B6B', color2: '#4ECDC4' },
-  { base1: 'G', base2: 'C', color1: '#FFE66D', color2: '#95E1D3' },
-  { base1: 'C', base2: 'G', color1: '#95E1D3', color2: '#FFE66D' },
-  { base1: 'T', base2: 'A', color1: '#4ECDC4', color2: '#FF6B6B' },
+  { base1: 'A', base2: 'T', color1: '#3b82f6', color2: '#06b6d4', accent1: '#60a5fa', accent2: '#22d3ee' },
+  { base1: 'G', base2: 'C', color1: '#8b5cf6', color2: '#a855f7', accent1: '#a78bfa', accent2: '#c084fc' },
+  { base1: 'C', base2: 'G', color1: '#ec4899', color2: '#f43f5e', accent1: '#f472b6', accent2: '#fb7185' },
+  { base1: 'T', base2: 'A', color1: '#10b981', color2: '#14b8a6', accent1: '#34d399', accent2: '#2dd4bf' },
 ]
 
 // Advanced DNA Double Helix Component
@@ -111,9 +111,9 @@ function DNADoubleHelix() {
             <meshStandardMaterial
               color={strandIndex === 0 ? '#0ea5e9' : '#ec4899'}
               emissive={strandIndex === 0 ? '#0ea5e9' : '#ec4899'}
-              emissiveIntensity={0.5}
-              metalness={0.8}
-              roughness={0.2}
+              emissiveIntensity={0.3}
+              metalness={0.6}
+              roughness={0.4}
             />
           </mesh>
         )
@@ -139,9 +139,9 @@ function DNADoubleHelix() {
             >
               <boxGeometry args={[4, 0.08, 0.08]} />
               <meshStandardMaterial
-                color="#22c55e"
-                emissive="#22c55e"
-                emissiveIntensity={isHovered ? 0.8 : 0.3}
+                color={isHovered ? data.basePair.accent1 : '#22c55e'}
+                emissive={isHovered ? data.basePair.accent1 : '#22c55e'}
+                emissiveIntensity={isHovered ? 0.6 : 0.3}
                 metalness={0.5}
                 roughness={0.5}
               />
@@ -158,11 +158,11 @@ function DNADoubleHelix() {
                 args={[0.25 * scale, 16, 16]}
               >
                 <meshStandardMaterial
-                  color={data.basePair.color1}
-                  emissive={data.basePair.color1}
-                  emissiveIntensity={isHovered ? 0.8 : 0.5}
-                  metalness={0.8}
-                  roughness={0.2}
+                  color={isHovered ? data.basePair.accent1 : data.basePair.color1}
+                  emissive={isHovered ? data.basePair.accent1 : data.basePair.color1}
+                  emissiveIntensity={isHovered ? 0.6 : 0.4}
+                  metalness={0.7}
+                  roughness={0.3}
                 />
               </Sphere>
             </Float>
@@ -177,11 +177,11 @@ function DNADoubleHelix() {
                 args={[0.25 * scale, 16, 16]}
               >
                 <meshStandardMaterial
-                  color={data.basePair.color2}
-                  emissive={data.basePair.color2}
-                  emissiveIntensity={isHovered ? 0.8 : 0.5}
-                  metalness={0.8}
-                  roughness={0.2}
+                  color={isHovered ? data.basePair.accent2 : data.basePair.color2}
+                  emissive={isHovered ? data.basePair.accent2 : data.basePair.color2}
+                  emissiveIntensity={isHovered ? 0.6 : 0.4}
+                  metalness={0.7}
+                  roughness={0.3}
                 />
               </Sphere>
             </Float>
@@ -192,7 +192,7 @@ function DNADoubleHelix() {
                 <Text
                   position={[data.position1.x, data.position1.y + 0.5, data.position1.z]}
                   fontSize={0.3}
-                  color={data.basePair.color1}
+                  color={data.basePair.accent1}
                   anchorX="center"
                   anchorY="middle"
                 >
@@ -201,7 +201,7 @@ function DNADoubleHelix() {
                 <Text
                   position={[data.position2.x, data.position2.y + 0.5, data.position2.z]}
                   fontSize={0.3}
-                  color={data.basePair.color2}
+                  color={data.basePair.accent2}
                   anchorX="center"
                   anchorY="middle"
                 >
@@ -321,11 +321,11 @@ export default function Hero() {
   const [isPlaying, setIsPlaying] = useState(false)
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-purple-950">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-cyan-50 to-indigo-100 dark:from-slate-950 dark:via-blue-950 dark:to-purple-950">
       {/* Animated gradient background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 via-secondary-500/5 to-accent-500/5 animate-gradient-xy" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-200/30 via-transparent to-transparent dark:from-blue-900/20 dark:via-transparent dark:to-transparent" />
       </div>
       
       {/* 3D Scene */}
@@ -361,39 +361,45 @@ export default function Hero() {
         </Canvas>
       </div>
 
-      {/* Content */}
+      {/* Content with enhanced background for better readability */}
       <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+        {/* Overlay for text readability */}
+        <div className="absolute inset-0 bg-white/60 backdrop-blur-sm rounded-3xl -m-8 dark:bg-black/40" />
+        
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          className="relative z-10 py-12"
         >
-          {/* Title with enhanced typography */}
+          {/* Title with enhanced typography and better contrast */}
           <motion.h1
             className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
+            style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }}
           >
-            <span className="inline-block bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent animate-gradient-x">
+            <span className="inline-block bg-gradient-to-r from-blue-600 via-cyan-600 to-gray-800 dark:from-blue-400 dark:via-cyan-300 dark:to-white bg-clip-text text-transparent drop-shadow-lg">
               Antibiotic
             </span>
             <br />
-            <span className="inline-block bg-gradient-to-r from-purple-400 via-pink-400 to-rose-400 bg-clip-text text-transparent animate-gradient-x">
+            <span className="inline-block bg-gradient-to-r from-purple-600 via-pink-600 to-gray-800 dark:from-purple-400 dark:via-pink-300 dark:to-white bg-clip-text text-transparent drop-shadow-lg">
               Resistance
             </span>
             <br />
-            <span className="text-white/90">Predictor</span>
+            <span className="text-gray-800 dark:text-white drop-shadow-lg">Predictor</span>
           </motion.h1>
           
           <motion.p
-            className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-gray-700 dark:text-white mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
+            style={{ textShadow: '1px 1px 3px rgba(0, 0, 0, 0.8)' }}
           >
-            Harness the power of <span className="text-cyan-400 font-semibold">AI</span> and{' '}
-            <span className="text-pink-400 font-semibold">machine learning</span> to predict
+            Harness the power of <span className="text-cyan-600 dark:text-cyan-300 font-semibold drop-shadow-md">AI</span> and{' '}
+            <span className="text-pink-600 dark:text-pink-300 font-semibold drop-shadow-md">machine learning</span> to predict
             antibiotic resistance from epitope sequences with unprecedented accuracy
           </motion.p>
           
@@ -431,7 +437,7 @@ export default function Hero() {
             </button>
           </motion.div>
 
-          {/* Stats preview */}
+          {/* Stats preview with better contrast */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -439,16 +445,16 @@ export default function Hero() {
             className="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto"
           >
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-cyan-400">11</div>
-              <div className="text-xs md:text-sm text-gray-400">Antibiotics</div>
+              <div className="text-2xl md:text-3xl font-bold text-cyan-600 dark:text-cyan-300 drop-shadow-lg">11</div>
+              <div className="text-xs md:text-sm text-gray-700 dark:text-white drop-shadow-md">Antibiotics</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-pink-400">&lt;1s</div>
-              <div className="text-xs md:text-sm text-gray-400">Prediction Time</div>
+              <div className="text-2xl md:text-3xl font-bold text-pink-600 dark:text-pink-300 drop-shadow-lg">&lt;1s</div>
+              <div className="text-xs md:text-sm text-gray-700 dark:text-white drop-shadow-md">Prediction Time</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-teal-400">95%+</div>
-              <div className="text-xs md:text-sm text-gray-400">Accuracy</div>
+              <div className="text-2xl md:text-3xl font-bold text-emerald-600 dark:text-emerald-300 drop-shadow-lg">95%+</div>
+              <div className="text-xs md:text-sm text-gray-700 dark:text-white drop-shadow-md">Accuracy</div>
             </div>
           </motion.div>
         </motion.div>
@@ -460,7 +466,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, repeat: Infinity, repeatType: 'reverse', duration: 1.5 }}
         >
-          <FiArrowDown className="text-3xl text-gray-400 animate-bounce" />
+          <FiArrowDown className="text-3xl text-gray-600 dark:text-gray-400 animate-bounce" />
         </motion.div>
       </div>
 

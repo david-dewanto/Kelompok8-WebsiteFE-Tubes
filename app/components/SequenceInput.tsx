@@ -69,11 +69,11 @@ export default function SequenceInput({ onSubmit, isLoading }: SequenceInputProp
                 setError('')
               }}
               placeholder="Enter epitope sequence (e.g., ESSALAAAQAMASAAAFETA)"
-              className={`w-full min-h-[200px] p-6 pr-16 rounded-2xl bg-gray-900/70 backdrop-blur-lg border-2 ${
+              className={`w-full min-h-[200px] p-6 pr-16 rounded-2xl bg-white/80 dark:bg-gray-900/70 backdrop-blur-lg border-2 ${
                 error
                   ? 'border-red-500 focus:border-red-400'
-                  : 'border-gray-600 focus:border-cyan-400'
-              } focus:outline-none focus:ring-4 focus:ring-cyan-500/20 transition-all duration-300 sequence-input resize-none text-white placeholder-gray-400`}
+                  : 'border-gray-300 dark:border-gray-600 focus:border-cyan-500 dark:focus:border-cyan-400'
+              } focus:outline-none focus:ring-4 focus:ring-cyan-500/20 transition-all duration-300 sequence-input resize-none text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400`}
               disabled={isLoading}
               spellCheck={false}
               autoComplete="off"
@@ -82,7 +82,7 @@ export default function SequenceInput({ onSubmit, isLoading }: SequenceInputProp
             />
             
             {/* Character counter */}
-            <div className="absolute bottom-4 right-4 text-sm text-cyan-400">
+            <div className="absolute bottom-4 right-4 text-sm text-cyan-600 dark:text-cyan-400">
               {charCount} aa
             </div>
 
@@ -90,13 +90,13 @@ export default function SequenceInput({ onSubmit, isLoading }: SequenceInputProp
             <button
               type="button"
               onClick={handleCopy}
-              className="absolute top-4 right-4 p-2 rounded-lg hover:bg-gray-700 transition-colors"
+              className="absolute top-4 right-4 p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
               disabled={!sequence}
             >
               {copied ? (
-                <FiCheck className="text-green-400" />
+                <FiCheck className="text-green-500 dark:text-green-400" />
               ) : (
-                <FiCopy className="text-gray-300 hover:text-cyan-400" />
+                <FiCopy className="text-gray-600 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400" />
               )}
             </button>
           </div>
@@ -119,7 +119,7 @@ export default function SequenceInput({ onSubmit, isLoading }: SequenceInputProp
 
         {/* Sample sequences */}
         <div className="space-y-3">
-          <h3 className="text-sm font-medium text-gray-300">
+          <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300">
             Try a sample sequence:
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -128,17 +128,17 @@ export default function SequenceInput({ onSubmit, isLoading }: SequenceInputProp
                 key={index}
                 type="button"
                 onClick={() => handleSampleClick(sample.sequence)}
-                className="text-left p-4 rounded-xl bg-gray-800/50 hover:bg-gray-700/50 border border-gray-600 hover:border-cyan-400 transition-all duration-300 group backdrop-blur-lg"
+                className="text-left p-4 rounded-xl bg-white/60 dark:bg-gray-800/50 hover:bg-gray-100/80 dark:hover:bg-gray-700/50 border border-gray-300 dark:border-gray-600 hover:border-cyan-500 dark:hover:border-cyan-400 transition-all duration-300 group backdrop-blur-lg"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <div className="font-semibold text-gray-200 group-hover:text-cyan-400 transition-colors">
+                <div className="font-semibold text-gray-800 dark:text-gray-200 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
                   {sample.name}
                 </div>
-                <div className="text-sm text-gray-400 mt-1">
+                <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
                   {sample.description}
                 </div>
-                <div className="font-mono text-xs text-gray-500 mt-2 truncate">
+                <div className="font-mono text-xs text-gray-500 dark:text-gray-500 mt-2 truncate">
                   {sample.sequence}
                 </div>
               </motion.button>
@@ -159,7 +159,7 @@ export default function SequenceInput({ onSubmit, isLoading }: SequenceInputProp
         >
           {isLoading ? (
             <>
-              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              <div className="w-5 h-5 border-2 border-gray-400 dark:border-white border-t-transparent rounded-full animate-spin" />
               Analyzing...
             </>
           ) : (

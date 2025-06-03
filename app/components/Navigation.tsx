@@ -4,11 +4,13 @@ import { useTheme } from 'next-themes'
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FiSun, FiMoon, FiMenu, FiX, FiGithub, FiInfo } from 'react-icons/fi'
+import RepositoryModal from './RepositoryModal'
 
 export default function Navigation() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isRepositoryModalOpen, setIsRepositoryModalOpen] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -57,17 +59,16 @@ export default function Navigation() {
             ))}
             
             <div className="flex items-center gap-4 ml-8">
-              <motion.a
-                href="https://github.com/david-dewanto/Kelompok8-WebsiteFE-Tubes"
-                target="_blank"
-                rel="noopener noreferrer"
+              <motion.button
+                onClick={() => setIsRepositoryModalOpen(true)}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
                 className="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                aria-label="Open repository selection"
               >
                 <FiGithub className="text-xl" />
-              </motion.a>
+              </motion.button>
               
               <motion.button
                 initial={{ opacity: 0 }}
@@ -123,14 +124,13 @@ export default function Navigation() {
           ))}
           
           <div className="flex items-center justify-between px-4 pt-3 border-t border-gray-200 dark:border-gray-700">
-            <a
-              href="https://github.com/david-dewanto/Kelompok8-WebsiteFE-Tubes"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => setIsRepositoryModalOpen(true)}
               className="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+              aria-label="Open repository selection"
             >
               <FiGithub className="text-xl" />
-            </a>
+            </button>
             
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
@@ -145,6 +145,12 @@ export default function Navigation() {
           </div>
         </div>
       </motion.div>
+
+      {/* Repository Selection Modal */}
+      <RepositoryModal
+        isOpen={isRepositoryModalOpen}
+        onClose={() => setIsRepositoryModalOpen(false)}
+      />
     </nav>
   )
 }

@@ -1,10 +1,13 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FiGithub, FiTwitter, FiLinkedin, FiMail, FiExternalLink } from 'react-icons/fi'
+import RepositoryModal from './RepositoryModal'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+  const [isRepositoryModalOpen, setIsRepositoryModalOpen] = useState(false)
 
   const footerLinks = [
     {
@@ -24,27 +27,16 @@ export default function Footer() {
         { name: 'Clinical Applications', href: '#educational-content' },
       ],
     },
-    {
-      title: 'Legal',
-      links: [
-        { name: 'Privacy Policy', href: '#' },
-        { name: 'Terms of Service', href: '#' },
-        { name: 'Disclaimer', href: '#' },
-      ],
-    },
   ]
 
   const socialLinks = [
-    { icon: FiGithub, href: 'https://github.com', label: 'GitHub' },
-    { icon: FiTwitter, href: 'https://twitter.com', label: 'Twitter' },
-    { icon: FiLinkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: FiMail, href: 'mailto:contact@example.com', label: 'Email' },
+    { icon: FiGithub, onClick: () => setIsRepositoryModalOpen(true), label: 'GitHub' },
   ]
 
   return (
-    <footer className="bg-gray-950 border-t border-gray-800">
+    <footer className="bg-gray-50 dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -57,11 +49,11 @@ export default function Footer() {
               <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">AR</span>
               </div>
-              <h3 className="text-lg font-bold text-white">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white">
                 AR Predictor
               </h3>
             </div>
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-gray-600 dark:text-gray-400">
               Advanced AI-powered antibiotic resistance prediction from epitope sequences.
               Helping healthcare professionals make informed treatment decisions.
             </p>
@@ -69,22 +61,20 @@ export default function Footer() {
               {socialLinks.map((social, index) => {
                 const Icon = social.icon
                 return (
-                  <motion.a
+                  <motion.button
                     key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    onClick={social.onClick}
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ delay: index * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                    className="p-2 rounded-lg bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
                     aria-label={social.label}
                   >
-                    <Icon className="text-lg text-gray-600 dark:text-gray-400" />
-                  </motion.a>
+                    <Icon className="text-lg text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white" />
+                  </motion.button>
                 )
               })}
             </div>
@@ -130,19 +120,14 @@ export default function Footer() {
           viewport={{ once: true }}
           className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800"
         >
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4">
             <p className="text-sm text-gray-600 dark:text-gray-400">
               © {currentYear} Antibiotic Resistance Predictor. All rights reserved.
             </p>
-            <div className="flex items-center gap-6">
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                Built with ❤️ using Next.js and AI
-              </p>
-            </div>
           </div>
           
           {/* Disclaimer */}
-          <div className="mt-4 p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg">
+          <div className="mt-4 p-4 bg-yellow-100/80 dark:bg-yellow-900/20 border border-yellow-400/50 dark:border-yellow-800 rounded-lg">
             <p className="text-xs text-yellow-800 dark:text-yellow-200 text-center">
               <strong>Medical Disclaimer:</strong> This tool is for research and educational purposes only.
               Results should not be used as the sole basis for clinical decisions.
@@ -151,6 +136,12 @@ export default function Footer() {
           </div>
         </motion.div>
       </div>
+
+      {/* Repository Selection Modal */}
+      <RepositoryModal
+        isOpen={isRepositoryModalOpen}
+        onClose={() => setIsRepositoryModalOpen(false)}
+      />
     </footer>
   )
 }
