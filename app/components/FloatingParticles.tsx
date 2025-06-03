@@ -86,9 +86,13 @@ export default function FloatingParticles() {
         ctx.textBaseline = 'middle'
         
         // Add glow effect
-        ctx.shadowColor = particle.color + '0.5)'
-        ctx.shadowBlur = 10
-        ctx.fillStyle = particle.color + particle.opacity + ')'
+        if (particle.color) {
+          ctx.shadowColor = particle.color + '0.5)'
+          ctx.shadowBlur = 10
+          ctx.fillStyle = particle.color + particle.opacity + ')'
+        } else {
+          ctx.fillStyle = `rgba(59, 130, 246, ${particle.opacity})`
+        }
         ctx.fillText(particle.letter!, 0, 0)
         
         // Reset shadow
