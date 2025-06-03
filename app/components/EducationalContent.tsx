@@ -203,7 +203,7 @@ export default function EducationalContent() {
         </div>
         <div className="text-center p-6 rounded-2xl bg-white/60 dark:bg-gray-800/30 backdrop-blur-lg border border-gray-300 dark:border-gray-600">
           <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">
-            95%+
+            85%+
           </div>
           <p className="text-gray-700 dark:text-gray-300">
             Model accuracy on validation datasets
