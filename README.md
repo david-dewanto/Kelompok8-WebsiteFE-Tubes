@@ -242,17 +242,18 @@ npm run type-check
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## 📚 Academic Project
+
+This project was created to fulfill the assignment for course IF3211 - Domain-Specific Computing at Institut Teknologi Bandung.
+
+**Group 9:**
+- David Dewanto - 18222027
+- Ricky Wijaya - 18222043
+- Dedy Hofmanindo Saragih - 18222085
+
 ## 🙏 Acknowledgments
 
 - API powered by advanced machine learning models
 - UI inspiration from modern bioinformatics tools
 - Three.js community for 3D visualization examples
 - Next.js team for the amazing framework
-
-## 📞 Support
-
-For support, email support@predictresistantibiotics.site or open an issue on GitHub.
-
----
-
-Built with ❤️ for the scientific community
