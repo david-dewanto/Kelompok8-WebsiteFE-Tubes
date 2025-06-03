@@ -91,7 +91,7 @@ export default function RepositoryModal({ isOpen, onClose }: RepositoryModalProp
                 </div>
 
                 <p className="text-gray-300 mb-8">
-                  Select which repository you'd like to explore. Each repository contains different components of the Antibiotic Resistance Predictor system.
+                  Select which repository you&apos;d like to explore. Each repository contains different components of the Antibiotic Resistance Predictor system.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
