@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 329 86% 70%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 142 76% 36%;
+    --accent-foreground: 355 100% 97%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 199 89% 48%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 329 86% 70%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 142 76% 36%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 199 89% 48%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 via-secondary-500 to-accent-500 bg-clip-text text-transparent;
+  }
+
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20;
+  }
+
+  .glow {
+    @apply shadow-lg shadow-primary-500/25;
+  }
+
+  .sequence-input {
+    @apply font-mono text-lg tracking-wider uppercase;
+  }
+
+  .antibiotic-card {
+    @apply relative overflow-hidden rounded-xl p-6 transition-all duration-300;
+  }
+
+  .antibiotic-card.resistant {
+    @apply bg-gradient-to-br from-danger-500/10 to-danger-600/10 border-2 border-danger-500/30;
+  }
+
+  .antibiotic-card.susceptible {
+    @apply bg-gradient-to-br from-accent-500/10 to-accent-600/10 border-2 border-accent-500/30;
+  }
+
+  .loading-skeleton {
+    @apply animate-pulse bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700;
+    background-size: 200% 100%;
+    animation: loading 1.5s ease-in-out infinite;
+  }
+
+  @keyframes loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  .dna-helix {
+    transform-style: preserve-3d;
+    animation: rotate 20s linear infinite;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
+  }
+
+  .particle {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    animation: particleAnimation 3s ease-out;
+  }
+
+  @keyframes particleAnimation {
+    0% {
+      opacity: 1;
+      transform: translate(0, 0) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(var(--tx), var(--ty)) scale(0.5);
+    }
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  .mask-gradient {
+    mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+
+  .focus-ring {
+    @apply focus:outline-none focus:ring-4 focus:ring-primary-500/30 focus:border-primary-500;
+  }
+}
+
+/* DNA Loading Animation */
+.dna-loader {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.helix {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  animation: rotate 2s linear infinite;
+}
+
+.helix-particle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #0ea5e9, #ec4899);
+}
+
+.particle-1 {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: particle-float-1 2s ease-in-out infinite;
+}
+
+.particle-2 {
+  top: 33%;
+  left: 0;
+  animation: particle-float-2 2s ease-in-out infinite;
+}
+
+.particle-3 {
+  top: 66%;
+  right: 0;
+  animation: particle-float-3 2s ease-in-out infinite;
+}
+
+.particle-4 {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: particle-float-4 2s ease-in-out infinite;
+}
+
+@keyframes particle-float-1 {
+  0%, 100% { transform: translate(-50%, 0) scale(1); }
+  50% { transform: translate(-50%, -10px) scale(1.2); }
+}
+
+@keyframes particle-float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(10px, 0) scale(1.2); }
+}
+
+@keyframes particle-float-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-10px, 0) scale(1.2); }
+}
+
+@keyframes particle-float-4 {
+  0%, 100% { transform: translate(-50%, 0) scale(1); }
+  50% { transform: translate(-50%, 10px) scale(1.2); }
+}
