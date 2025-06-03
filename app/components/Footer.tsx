@@ -11,8 +11,9 @@ export default function Footer() {
       title: 'Resources',
       links: [
         { name: 'API Documentation', href: 'https://api.predictresistantibiotics.site/docs' },
-        { name: 'Research Paper', href: '#' },
-        { name: 'GitHub Repository', href: 'https://github.com' },
+        { name: 'Frontend Repository', href: 'https://github.com/david-dewanto/Kelompok8-WebsiteFE-Tubes' },
+        { name: 'Backend Repository', href: 'https://github.com/david-dewanto/Kelompok8-WebsiteBE-Tubes' },
+        { name: 'ML Model Repository', href: 'https://github.com/david-dewanto/Kelompok8-ModelMachineLearning-Tubes' },
       ],
     },
     {
@@ -41,7 +42,7 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+    <footer className="bg-gray-950 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand section */}
@@ -56,11 +57,11 @@ export default function Footer() {
               <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">AR</span>
               </div>
-              <h3 className="text-lg font-bold text-gray-800 dark:text-white">
+              <h3 className="text-lg font-bold text-white">
                 AR Predictor
               </h3>
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
+            <p className="text-sm text-gray-400">
               Advanced AI-powered antibiotic resistance prediction from epitope sequences.
               Helping healthcare professionals make informed treatment decisions.
             </p>

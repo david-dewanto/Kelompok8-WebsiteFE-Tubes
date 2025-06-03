@@ -58,7 +58,7 @@ export default function Navigation() {
             
             <div className="flex items-center gap-4 ml-8">
               <motion.a
-                href="https://github.com"
+                href="https://github.com/david-dewanto/Kelompok8-WebsiteFE-Tubes"
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0 }}
@@ -124,7 +124,7 @@ export default function Navigation() {
           
           <div className="flex items-center justify-between px-4 pt-3 border-t border-gray-200 dark:border-gray-700">
             <a
-              href="https://github.com"
+              href="https://github.com/david-dewanto/Kelompok8-WebsiteFE-Tubes"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"

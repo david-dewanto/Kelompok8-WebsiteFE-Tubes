@@ -10,6 +10,10 @@ interface Particle {
   speedX: number
   speedY: number
   opacity: number
+  letter?: string
+  color?: string
+  rotation?: number
+  rotationSpeed?: number
 }
 
 export default function FloatingParticles() {
@@ -33,15 +37,30 @@ export default function FloatingParticles() {
     window.addEventListener('resize', resizeCanvas)
 
     // Initialize particles
-    const particleCount = 50
-    particlesRef.current = Array.from({ length: particleCount }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      size: Math.random() * 3 + 1,
-      speedX: (Math.random() - 0.5) * 0.5,
-      speedY: (Math.random() - 0.5) * 0.5,
-      opacity: Math.random() * 0.5 + 0.2,
-    }))
+    const particleCount = 80
+    const geneticLetters = ['A', 'T', 'C', 'G']
+    const colors = [
+      'rgba(255, 107, 107, ',  // A - Red
+      'rgba(78, 205, 196, ',   // T - Teal
+      'rgba(255, 230, 109, ',  // C - Yellow
+      'rgba(149, 225, 211, '   // G - Green
+    ]
+    
+    particlesRef.current = Array.from({ length: particleCount }, () => {
+      const letterIndex = Math.floor(Math.random() * geneticLetters.length)
+      return {
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 20 + 15,
+        speedX: (Math.random() - 0.5) * 0.3,
+        speedY: (Math.random() - 0.5) * 0.3,
+        opacity: Math.random() * 0.3 + 0.1,
+        letter: geneticLetters[letterIndex],
+        color: colors[letterIndex],
+        rotation: Math.random() * Math.PI * 2,
+        rotationSpeed: (Math.random() - 0.5) * 0.02,
+      }
+    })
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -50,21 +69,34 @@ export default function FloatingParticles() {
         // Update position
         particle.x += particle.speedX
         particle.y += particle.speedY
+        particle.rotation! += particle.rotationSpeed!
 
         // Wrap around edges
-        if (particle.x < 0) particle.x = canvas.width
-        if (particle.x > canvas.width) particle.x = 0
-        if (particle.y < 0) particle.y = canvas.height
-        if (particle.y > canvas.height) particle.y = 0
+        if (particle.x < -50) particle.x = canvas.width + 50
+        if (particle.x > canvas.width + 50) particle.x = -50
+        if (particle.y < -50) particle.y = canvas.height + 50
+        if (particle.y > canvas.height + 50) particle.y = -50
 
-        // Draw particle
-        ctx.beginPath()
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(14, 165, 233, ${particle.opacity})`
-        ctx.fill()
+        // Draw genetic code letter
+        ctx.save()
+        ctx.translate(particle.x, particle.y)
+        ctx.rotate(particle.rotation!)
+        ctx.font = `bold ${particle.size}px 'JetBrains Mono', monospace`
+        ctx.textAlign = 'center'
+        ctx.textBaseline = 'middle'
+        
+        // Add glow effect
+        ctx.shadowColor = particle.color + '0.5)'
+        ctx.shadowBlur = 10
+        ctx.fillStyle = particle.color + particle.opacity + ')'
+        ctx.fillText(particle.letter!, 0, 0)
+        
+        // Reset shadow
+        ctx.shadowBlur = 0
+        ctx.restore()
       })
 
-      // Draw connections
+      // Draw subtle connections between nearby letters
       particlesRef.current.forEach((particle, i) => {
         particlesRef.current.slice(i + 1).forEach((otherParticle) => {
           const distance = Math.sqrt(
@@ -72,14 +104,14 @@ export default function FloatingParticles() {
             Math.pow(particle.y - otherParticle.y, 2)
           )
 
-          if (distance < 150) {
+          if (distance < 120) {
             ctx.beginPath()
             ctx.moveTo(particle.x, particle.y)
             ctx.lineTo(otherParticle.x, otherParticle.y)
-            ctx.strokeStyle = `rgba(14, 165, 233, ${
-              0.1 * (1 - distance / 150)
+            ctx.strokeStyle = `rgba(59, 130, 246, ${
+              0.05 * (1 - distance / 120)
             })`
-            ctx.lineWidth = 0.5
+            ctx.lineWidth = 1
             ctx.stroke()
           }
         })

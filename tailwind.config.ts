@@ -66,6 +66,12 @@ const config: Config = {
         'gradient-x': 'gradient-x 15s ease infinite',
         'gradient-y': 'gradient-y 15s ease infinite',
         'gradient-xy': 'gradient-xy 15s ease infinite',
+        'glow-pulse': 'glow-pulse 2s ease-in-out infinite alternate',
+        'float-gentle': 'float-gentle 6s ease-in-out infinite',
+        'rotate-slow': 'rotate-slow 20s linear infinite',
+        'shimmer': 'shimmer 2s linear infinite',
+        'dna-rotate': 'dna-rotate 10s linear infinite',
+        'molecule-orbit': 'molecule-orbit 8s ease-in-out infinite',
       },
       keyframes: {
         float: {
@@ -101,6 +107,38 @@ const config: Config = {
             'background-size': '200% 200%',
             'background-position': 'right center'
           }
+        },
+        'float-gentle': {
+          '0%, 100%': { transform: 'translateY(0) rotateY(0deg)' },
+          '50%': { transform: 'translateY(-10px) rotateY(180deg)' },
+        },
+        'rotate-slow': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        'glow-pulse': {
+          '0%': { 
+            boxShadow: '0 0 20px rgba(14, 165, 233, 0.5)',
+            filter: 'brightness(1)'
+          },
+          '100%': { 
+            boxShadow: '0 0 40px rgba(14, 165, 233, 0.8)',
+            filter: 'brightness(1.2)'
+          },
+        },
+        'shimmer': {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
+        },
+        'dna-rotate': {
+          '0%': { transform: 'rotateY(0deg) rotateZ(0deg)' },
+          '100%': { transform: 'rotateY(360deg) rotateZ(10deg)' },
+        },
+        'molecule-orbit': {
+          '0%, 100%': { transform: 'translateX(0) translateY(0) scale(1)' },
+          '25%': { transform: 'translateX(20px) translateY(-10px) scale(1.1)' },
+          '50%': { transform: 'translateX(0) translateY(-20px) scale(1)' },
+          '75%': { transform: 'translateX(-20px) translateY(-10px) scale(1.1)' },
         }
       },
       fontFamily: {

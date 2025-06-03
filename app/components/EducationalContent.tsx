@@ -69,17 +69,17 @@ function AccordionItem({ section, isOpen, onToggle }: AccordionItemProps) {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+      className="bg-gray-800/50 backdrop-blur-lg rounded-xl overflow-hidden border border-gray-600 hover:border-cyan-400 transition-all duration-300"
     >
       <button
         onClick={onToggle}
-        className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+        className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-700/50 transition-colors"
       >
         <div className="flex items-center gap-4">
-          <div className="p-2 rounded-lg bg-primary-100 dark:bg-primary-900">
-            <Icon className="text-xl text-primary-600 dark:text-primary-400" />
+          <div className="p-2 rounded-lg bg-cyan-900/50 border border-cyan-500/30">
+            <Icon className="text-xl text-cyan-400" />
           </div>
-          <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
+          <h3 className="text-lg font-semibold text-white">
             {section.title}
           </h3>
         </div>
@@ -87,7 +87,7 @@ function AccordionItem({ section, isOpen, onToggle }: AccordionItemProps) {
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
         >
-          <FiChevronDown className="text-xl text-gray-500" />
+          <FiChevronDown className="text-xl text-gray-400" />
         </motion.div>
       </button>
 
@@ -100,16 +100,16 @@ function AccordionItem({ section, isOpen, onToggle }: AccordionItemProps) {
             transition={{ duration: 0.3 }}
             className="px-6 pb-6"
           >
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
+            <p className="text-gray-300 mb-4">
               {section.content}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {section.highlights.map((highlight, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-200"
+                  className="flex items-center gap-2 text-sm text-gray-200"
                 >
-                  <div className="w-2 h-2 rounded-full bg-primary-500" />
+                  <div className="w-2 h-2 rounded-full bg-cyan-400" />
                   {highlight}
                 </div>
               ))}
@@ -144,13 +144,13 @@ export default function EducationalContent() {
           transition={{ delay: 0.2 }}
           className="text-4xl md:text-5xl font-bold mb-4"
         >
-          <span className="gradient-text">Learn More</span>
+          <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">Learn More</span>
         </motion.h2>
         <motion.p
           initial={{ y: 20, opacity: 0 }}
           animate={inView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
           transition={{ delay: 0.3 }}
-          className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
+          className="text-xl text-gray-300 max-w-2xl mx-auto"
         >
           Understanding antibiotic resistance and how AI can help combat this global health threat
         </motion.p>
@@ -185,27 +185,27 @@ export default function EducationalContent() {
         transition={{ delay: 0.6 }}
         className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
       >
-        <div className="text-center">
-          <div className="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">
+        <div className="text-center p-6 rounded-2xl bg-gray-800/30 backdrop-blur-lg border border-gray-600">
+          <div className="text-4xl font-bold text-red-400 mb-2">
             700,000+
           </div>
-          <p className="text-gray-600 dark:text-gray-300">
+          <p className="text-gray-300">
             Annual deaths from antibiotic resistance globally
           </p>
         </div>
-        <div className="text-center">
-          <div className="text-4xl font-bold text-secondary-600 dark:text-secondary-400 mb-2">
+        <div className="text-center p-6 rounded-2xl bg-gray-800/30 backdrop-blur-lg border border-gray-600">
+          <div className="text-4xl font-bold text-cyan-400 mb-2">
             &lt;1 min
           </div>
-          <p className="text-gray-600 dark:text-gray-300">
+          <p className="text-gray-300">
             AI prediction time vs days for traditional methods
           </p>
         </div>
-        <div className="text-center">
-          <div className="text-4xl font-bold text-accent-600 dark:text-accent-400 mb-2">
+        <div className="text-center p-6 rounded-2xl bg-gray-800/30 backdrop-blur-lg border border-gray-600">
+          <div className="text-4xl font-bold text-green-400 mb-2">
             95%+
           </div>
-          <p className="text-gray-600 dark:text-gray-300">
+          <p className="text-gray-300">
             Model accuracy on validation datasets
           </p>
         </div>
