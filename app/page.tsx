@@ -23,6 +23,17 @@ export default function Home() {
       const result = await predictResistance(sequence)
       setPredictions(result)
       toast.success('Prediction completed successfully!')
+      
+      // Auto-scroll to results section after successful prediction
+      setTimeout(() => {
+        const resultsSection = document.getElementById('prediction-results-section')
+        if (resultsSection) {
+          resultsSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          })
+        }
+      }, 100) // Small delay to ensure results are rendered
     } catch (error) {
       console.error('Prediction error:', error)
       toast.error('Failed to predict resistance. Please try again.')
@@ -68,10 +79,12 @@ export default function Home() {
           <SequenceInput onSubmit={handlePredict} isLoading={isLoading} />
 
           {(predictions || isLoading) && (
-            <PredictionResults
-              predictions={predictions}
-              isLoading={isLoading}
-            />
+            <div id="prediction-results-section">
+              <PredictionResults
+                predictions={predictions}
+                isLoading={isLoading}
+              />
+            </div>
           )}
 
           <EducationalContent />

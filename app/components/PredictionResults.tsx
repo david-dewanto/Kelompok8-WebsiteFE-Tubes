@@ -196,17 +196,17 @@ export default function PredictionResults({ predictions, isLoading }: Prediction
                         {antibiotic.name}
                       </h5>
                       {isResistant ? (
-                        <FiAlertTriangle className="text-danger-600 text-xl" />
+                        <FiAlertTriangle className="text-red-600 dark:text-danger-400 text-xl" />
                       ) : (
-                        <FiShield className="text-accent-600 text-xl" />
+                        <FiShield className="text-green-600 dark:text-accent-400 text-xl" />
                       )}
                     </div>
                     <p className={`text-sm font-medium ${
-                      isResistant ? 'text-danger-600' : 'text-accent-600'
+                      isResistant ? 'text-red-700 dark:text-danger-400' : 'text-green-700 dark:text-accent-400'
                     }`}>
                       {status}
                     </p>
-                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+                    <p className="text-xs text-gray-700 dark:text-gray-400 mt-1">
                       {antibiotic.class}
                     </p>
                     
@@ -218,7 +218,7 @@ export default function PredictionResults({ predictions, isLoading }: Prediction
                           exit={{ opacity: 0, height: 0 }}
                           className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-600"
                         >
-                          <p className="text-xs text-gray-600 dark:text-gray-300">
+                          <p className="text-xs text-gray-700 dark:text-gray-300">
                             {antibiotic.description}
                           </p>
                         </motion.div>

@@ -107,7 +107,7 @@ function AccordionItem({ section, isOpen, onToggle }: AccordionItemProps) {
               {section.highlights.map((highlight, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-200"
+                  className="flex items-center justify-center gap-2 text-sm text-gray-700 dark:text-gray-200"
                 >
                   <div className="w-2 h-2 rounded-full bg-cyan-500 dark:bg-cyan-400" />
                   {highlight}

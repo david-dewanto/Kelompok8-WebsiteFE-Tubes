@@ -364,7 +364,7 @@ export default function Hero() {
       {/* Content with enhanced background for better readability */}
       <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
         {/* Overlay for text readability */}
-        <div className="absolute inset-0 bg-white/60 backdrop-blur-sm rounded-3xl -m-8 dark:bg-black/40" />
+        <div className="absolute inset-0 bg-gray-800/80 backdrop-blur-sm rounded-3xl -m-8 dark:bg-black/40" />
         
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -378,28 +378,27 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }}
           >
-            <span className="inline-block bg-gradient-to-r from-blue-600 via-cyan-600 to-gray-800 dark:from-blue-400 dark:via-cyan-300 dark:to-white bg-clip-text text-transparent drop-shadow-lg">
+            <span className="inline-block bg-gradient-to-r from-blue-300 via-cyan-200 to-teal-300 dark:from-blue-400 dark:via-cyan-300 dark:to-white bg-clip-text text-transparent">
               Antibiotic
             </span>
             <br />
-            <span className="inline-block bg-gradient-to-r from-purple-600 via-pink-600 to-gray-800 dark:from-purple-400 dark:via-pink-300 dark:to-white bg-clip-text text-transparent drop-shadow-lg">
+            <span className="inline-block bg-gradient-to-r from-emerald-300 via-green-200 to-cyan-300 dark:from-purple-400 dark:via-pink-300 dark:to-white bg-clip-text text-transparent">
               Resistance
             </span>
             <br />
-            <span className="text-gray-800 dark:text-white drop-shadow-lg">Predictor</span>
+            <span className="text-white dark:text-white">Predictor</span>
           </motion.h1>
           
           <motion.p
-            className="text-xl md:text-2xl text-gray-700 dark:text-white mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-lg"
+            className="text-xl md:text-2xl text-white dark:text-white mb-8 max-w-3xl mx-auto leading-relaxed dark:drop-shadow-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            style={{ textShadow: '1px 1px 3px rgba(0, 0, 0, 0.8)' }}
+            style={{ textShadow: 'none' }}
           >
-            Harness the power of <span className="text-cyan-600 dark:text-cyan-300 font-semibold drop-shadow-md">AI</span> and{' '}
-            <span className="text-pink-600 dark:text-pink-300 font-semibold drop-shadow-md">machine learning</span> to predict
+            Harness the power of <span className="text-cyan-300 dark:text-cyan-300 font-semibold dark:drop-shadow-md">AI</span> and{' '}
+            <span className="text-pink-300 dark:text-pink-300 font-semibold dark:drop-shadow-md">machine learning</span> to predict
             antibiotic resistance from epitope sequences with unprecedented accuracy
           </motion.p>
           
@@ -430,10 +429,10 @@ export default function Hero() {
                   behavior: 'smooth',
                 })
               }}
-              className="group px-8 py-4 bg-white/5 hover:bg-white/10 backdrop-blur-lg border border-white/20 hover:border-white/30 text-white rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 relative overflow-hidden"
+              className="group px-8 py-4 bg-white/20 hover:bg-white/30 dark:bg-white/5 dark:hover:bg-white/10 backdrop-blur-lg border border-white/40 hover:border-white/60 dark:border-white/20 dark:hover:border-white/30 text-white rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 relative overflow-hidden"
             >
               <span className="relative z-10">Learn More</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-400/30 to-pink-400/30 dark:from-purple-500/20 dark:to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </button>
           </motion.div>
 
@@ -445,16 +444,16 @@ export default function Hero() {
             className="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto"
           >
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-cyan-600 dark:text-cyan-300 drop-shadow-lg">11</div>
-              <div className="text-xs md:text-sm text-gray-700 dark:text-white drop-shadow-md">Antibiotics</div>
+              <div className="text-2xl md:text-3xl font-bold text-cyan-300 dark:text-cyan-300 drop-shadow-lg">11</div>
+              <div className="text-xs md:text-sm text-white dark:text-white drop-shadow-md">Antibiotics</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-pink-600 dark:text-pink-300 drop-shadow-lg">&lt;1s</div>
-              <div className="text-xs md:text-sm text-gray-700 dark:text-white drop-shadow-md">Prediction Time</div>
+              <div className="text-2xl md:text-3xl font-bold text-pink-300 dark:text-pink-300 drop-shadow-lg">&lt;1s</div>
+              <div className="text-xs md:text-sm text-white dark:text-white drop-shadow-md">Prediction Time</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-emerald-600 dark:text-emerald-300 drop-shadow-lg">95%+</div>
-              <div className="text-xs md:text-sm text-gray-700 dark:text-white drop-shadow-md">Accuracy</div>
+              <div className="text-2xl md:text-3xl font-bold text-emerald-300 dark:text-emerald-300 drop-shadow-lg">95%+</div>
+              <div className="text-xs md:text-sm text-white dark:text-white drop-shadow-md">Accuracy</div>
             </div>
           </motion.div>
         </motion.div>
