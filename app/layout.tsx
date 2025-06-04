@@ -12,6 +12,11 @@ export const metadata: Metadata = {
   description: 'Predict antibiotic resistance from epitope sequences using advanced machine learning. Get instant insights for 11 different antibiotics.',
   keywords: 'antibiotic resistance, epitope sequence, machine learning, bioinformatics, drug resistance prediction',
   authors: [{ name: 'Antibiotic Resistance Predictor Team' }],
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
   openGraph: {
     title: 'Antibiotic Resistance Predictor',
     description: 'AI-powered tool for predicting antibiotic resistance from epitope sequences',
