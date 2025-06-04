@@ -39,24 +39,24 @@ export function validateSequence(sequence: string): { isValid: boolean; error?: 
 
 export const sampleSequences = [
   {
-    name: 'Bacterial Enzyme Domain',
+    name: 'Mycobacterium tuberculosis Fragment',
     sequence: 'LANAYNDTRRKVVPPEEIAANREER',
-    description: 'Conserved enzyme active site region with catalytic residues',
+    description: 'TB pathogen sequence linked to multi-drug resistance mechanisms',
   },
   {
-    name: 'Membrane Transport Protein',
+    name: 'MRSA Efflux Pump Domain',
     sequence: 'DRYRHLVALSITDFGAAGPRSSWRA',
-    description: 'Transmembrane domain involved in drug efflux mechanisms',
+    description: 'Methicillin-resistant Staphylococcus aureus drug transport region',
   },
   {
-    name: 'DNA Binding Motif',
+    name: 'E. coli Regulatory Sequence',
     sequence: 'FPVVTHDEVLRLVGRRRLWGRG',
-    description: 'Regulatory protein sequence affecting gene expression',
+    description: 'Pathogenic E. coli sequence controlling resistance gene expression',
   },
   {
-    name: 'Cell Wall Synthesis',
+    name: 'Pneumonia Pathogen Fragment',
     sequence: 'EQRRRAARVARNPRTGETVK',
-    description: 'Peptidoglycan biosynthesis pathway component',
+    description: 'Streptococcus pneumoniae cell wall component sequence',
   },
 ]
 
