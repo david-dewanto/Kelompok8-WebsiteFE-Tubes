@@ -68,7 +68,13 @@ export default function SequenceInput({ onSubmit, isLoading }: SequenceInputProp
                 setSequence(e.target.value.toUpperCase())
                 setError('')
               }}
-              placeholder="Enter epitope sequence (e.g., ESSALAAAQAMASAAAFETA)"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                  e.preventDefault()
+                  handleSubmit(e as any)
+                }
+              }}
+              placeholder="Enter epitope sequence (Press Enter to analyze, Shift+Enter for new line)"
               className={`w-full min-h-[200px] p-6 pr-16 rounded-2xl bg-white/80 dark:bg-gray-900/70 backdrop-blur-lg border-2 ${
                 error
                   ? 'border-red-500 focus:border-red-400'
